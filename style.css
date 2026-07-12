@@ -114,7 +114,7 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
 .header {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
     padding: 1.5rem 0;
 }
 
@@ -131,12 +131,28 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
     }
 }
 
+/* Profile row: photo beside name */
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
 /* Avatar */
 .avatar {
-    width: 140px; height: 140px; border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
-    border: 2px solid var(--border);
+    flex-shrink: 0;
+    border: 2px solid rgba(56,189,248,.35);
     box-shadow: 0 0 20px rgba(56,189,248,.3);
     animation: pulse-glow 3s ease-in-out infinite;
 }
@@ -147,9 +163,9 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
 }
 
 .header h1 {
-    font-size: clamp(1.7rem, 2.5vw, 2.4rem);
-    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
-    margin-bottom: 0.3rem;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+    margin-bottom: 0;
     background: var(--accent-gradient);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -157,8 +173,8 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
 @supports not (-webkit-background-clip: text) { .header h1 { color: var(--accent-1); } }
 .header h1 a { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-.header h2 { font-size: 1rem; font-weight: 500; color: var(--text-heading); margin-bottom: 0.6rem; }
-.tagline   { font-size: 0.875rem; color: var(--text-body); max-width: 280px; line-height: 1.6; }
+.header h2 { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); margin-bottom: 0; }
+.tagline   { font-size: 0.875rem; color: var(--text-body); max-width: 300px; line-height: 1.6; }
 
 /* Stats */
 .stats { display: flex; gap: 1.25rem; padding: 0.9rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0.9rem 0; flex-wrap: wrap; }
