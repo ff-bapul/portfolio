@@ -3,99 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Labade | Portfolio</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 16px;
-            width: 500px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,.25);
-        }
-
-        h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-weight: normal;
-            color: #dbeafe;
-            margin-bottom: 20px;
-        }
-
-        p {
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            background: white;
-            color: #2563eb;
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background: #f3f4f6;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #e5e7eb;
-        }
-    </style>
+    <title>Bapu Labade | Technical Lead Engineer</title>
+    <meta name="description" content="Portfolio of Bapu Labade, a Technical Lead Engineer specializing in scalable AI systems and SaaS platforms.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    
+    <div id="cursor-glow"></div>
 
-<div class="card">
-    <h1>👋 Hello!</h1>
+    <div class="layout">
+        <div class="container">
+            
+            <!-- Left Side - Fixed -->
+            <header class="header">
+                <div class="header-content">
+                    <h1><a href="/">Bapu Labade</a></h1>
+                    <h2>Technical Lead Engineer</h2>
+                    <p class="tagline">Building scalable AI systems, SaaS platforms, and enterprise applications.</p>
+                    
+                    <nav class="nav">
+                        <ul>
+                            <li>
+                                <a class="nav-link active" href="#about">
+                                    <span class="nav-indicator"></span>
+                                    <span class="nav-text">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#experience">
+                                    <span class="nav-indicator"></span>
+                                    <span class="nav-text">Experience</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#skills">
+                                    <span class="nav-indicator"></span>
+                                    <span class="nav-text">Skills</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
 
-    <h2>I'm Rahul Labade</h2>
+                <ul class="socials" aria-label="Social media">
+                    <li>
+                        <a href="mailto:bapu.labade76@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon"><path fill-rule="evenodd" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </li>
+                </ul>
+            </header>
 
-    <p>
-        Technical Lead Engineer with 12+ years of experience building scalable
-        SaaS platforms, AI applications, and cloud solutions.
-    </p>
+            <!-- Right Side - Scrollable -->
+            <main class="content">
+                
+                <section id="about" class="section">
+                    <h2 class="section-heading sr-only">About</h2>
+                    <p class="mb-4">
+                        Results-driven Technical Lead Engineer with 12+ years of experience building scalable AI systems and SaaS platforms and enterprise applications. Expertise in Python, FastAPI, PostgreSQL, Redis, TypeScript, Rust, and cloud technologies (AWS, Azure, GCP), with a strong focus on microservices, distributed systems, containerization (Docker, Kubernetes), data processing, and Gen AI/LLM integrations.
+                    </p>
+                    <p class="mb-4">
+                        Experienced with OpenAI, Anthropic, Google Vertex AI, LangChain, vector databases, RAG pipelines, and AI agents.
+                    </p>
+                    <p>
+                        Proven track record in designing and implementing scalable services, observability solutions, secure APIs, and cloud-native architectures. Adept at leading Agile teams, collaborating across functions, optimizing systems for business growth, and driving digital transformation with scalability, efficiency, automation, and strong communication skills.
+                    </p>
+                </section>
 
-    <p>
-        🚀 Python • FastAPI • Azure • Kubernetes • AI Agents • LLMs
-    </p>
+                <section id="experience" class="section">
+                    <h2 class="section-heading sr-only">Experience</h2>
+                    
+                    <div class="experience-list">
+                        <!-- Experience Item 1 -->
+                        <div class="experience-card group">
+                            <header class="experience-date">June 2022 — Present</header>
+                            <div class="experience-content">
+                                <h3>
+                                    <a class="experience-title" href="#">
+                                        Technical Lead · Terrascope (Olam Group)
+                                    </a>
+                                </h3>
+                                <p class="experience-desc">Architected and led the migration from Azure to AWS, implementing cloud-native solutions that improved scalability and reduced infrastructure costs by 35%. Developed AI/LLM integrations using OpenAI APIs, LangChain, embeddings, and vector-based retrieval workflows for intelligent automation use cases.</p>
+                                <ul class="tech-stack">
+                                    <li class="tech-tag">AWS</li>
+                                    <li class="tech-tag">Python</li>
+                                    <li class="tech-tag">Rust</li>
+                                    <li class="tech-tag">OpenAI</li>
+                                    <li class="tech-tag">LangChain</li>
+                                    <li class="tech-tag">MongoDB</li>
+                                    <li class="tech-tag">Postgres</li>
+                                </ul>
+                            </div>
+                        </div>
 
-    <a class="btn" href="https://github.com/ff-bapul" target="_blank">
-        View GitHub
-    </a>
+                        <!-- Experience Item 2 -->
+                        <div class="experience-card group">
+                            <header class="experience-date">June 2016 — June 2022</header>
+                            <div class="experience-content">
+                                <h3>
+                                    <a class="experience-title" href="#">
+                                        Associate Technical Leader · UST Global (Xpanxion)
+                                    </a>
+                                </h3>
+                                <p class="experience-desc">Led the development of key features for energy management projects resulting in a 40% acceleration in deployment cycles. Designed and built an admin portal to automate customer onboarding, reducing time-to-market and streamlining processes.</p>
+                                <ul class="tech-stack">
+                                    <li class="tech-tag">React</li>
+                                    <li class="tech-tag">APIs</li>
+                                    <li class="tech-tag">Data Visualization</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience Item 3 -->
+                        <div class="experience-card group">
+                            <header class="experience-date">April 2014 — June 2016</header>
+                            <div class="experience-content">
+                                <h3>
+                                    <a class="experience-title" href="#">
+                                        Sr. Software Engineer · Pramati Technologies
+                                    </a>
+                                </h3>
+                                <p class="experience-desc">Enhanced performance for Castlight Health by addressing key system bottlenecks. Implemented RESTful APIs and microservices architecture, improving system modularity and scalability for healthcare data management using Python.</p>
+                                <ul class="tech-stack">
+                                    <li class="tech-tag">Python</li>
+                                    <li class="tech-tag">REST APIs</li>
+                                    <li class="tech-tag">Microservices</li>
+                                </ul>
+                            </div>
+                        </div>
 
-    <footer>
-        © 2026 Rahul Labade
-    </footer>
-</div>
+                    </div>
+                </section>
 
+                <section id="skills" class="section">
+                     <h2 class="section-heading sr-only">Skills</h2>
+                    
+                     <div class="experience-list">
+                        <div class="experience-card group">
+                            <div class="experience-content">
+                                <h3><span class="experience-title">Languages & Frameworks</span></h3>
+                                <p class="experience-desc">Rust, Python, Java, Typescript, NodeJS, Ruby, Flask, ReactJS</p>
+                            </div>
+                        </div>
+                        <div class="experience-card group">
+                            <div class="experience-content">
+                                <h3><span class="experience-title">AI / ML</span></h3>
+                                <p class="experience-desc">Gen AI, Document AI, Hugging Face, OpenAI, Anthropic, Vertex AI, LangChain, LLM APIs, AI Agents, RAG, Multi-Agent Systems</p>
+                            </div>
+                        </div>
+                        <div class="experience-card group">
+                            <div class="experience-content">
+                                <h3><span class="experience-title">Cloud & Infrastructure</span></h3>
+                                <p class="experience-desc">AWS, Azure, Google Cloud, Docker, Kubernetes, ECS, EKS, ArgoCD, Terraform, AWS CDK</p>
+                            </div>
+                        </div>
+                        <div class="experience-card group">
+                            <div class="experience-content">
+                                <h3><span class="experience-title">Databases & Data Processing</span></h3>
+                                <p class="experience-desc">PostgreSQL, DynamoDB, MongoDB, Redshift, Redis, ClickHouse, MySQL, Spark, Kafka, SQS, RabbitMQ, Airflow</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <footer class="footer">
+                    <p>Designed and coded by yours truly. Built with plain HTML, CSS, and vanilla JavaScript. Deployed with GitHub Pages.</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
