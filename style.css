@@ -89,7 +89,7 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
     position: relative; z-index: 2;
     max-width: 1440px;           /* wider than before (was 1280px) */
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 1rem 2rem;
     min-height: 100vh;
 }
 
@@ -115,7 +115,7 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem 0;
+    padding: 1.5rem 0;
 }
 
 @media (min-width: 1024px) {
@@ -125,7 +125,7 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
         width: 360px;        /* fixed width — gives right panel maximum room */
         flex-shrink: 0;
         max-height: 100vh;
-        padding: 6rem 0;
+        padding: 3rem 0;
         justify-content: space-between;
         overflow-y: auto;
     }
@@ -133,11 +133,11 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
 
 /* Avatar */
 .avatar {
-    width: 60px; height: 60px; border-radius: 50%;
-    background: var(--accent-gradient);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
-    color: var(--bg); letter-spacing: 1px; margin-bottom: 0.5rem;
+    width: 140px; height: 140px; border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 2px solid var(--border);
+    box-shadow: 0 0 20px rgba(56,189,248,.3);
     animation: pulse-glow 3s ease-in-out infinite;
 }
 
@@ -200,8 +200,8 @@ svg { display: inline-block; vertical-align: middle; overflow: hidden; flex-shri
 /* ==========================================================
    MAIN CONTENT — RIGHT PANEL (takes all remaining width)
    ========================================================== */
-.content { flex: 1; min-width: 0; padding: 3rem 0; }
-@media (min-width: 1024px) { .content { padding: 6rem 0; } }
+.content { flex: 1; min-width: 0; padding: 1.5rem 0; }
+@media (min-width: 1024px) { .content { padding: 3rem 0; } }
 
 /* ==========================================================
    SECTIONS
