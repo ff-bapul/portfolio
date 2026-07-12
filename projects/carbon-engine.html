@@ -46,7 +46,7 @@
                     <span class="stat-key">Language</span>
                 </div>
                 <div class="stat-block">
-                    <span class="stat-value">EKS</span>
+                    <span class="stat-value">AWS Batch</span>
                     <span class="stat-key">Deployed On</span>
                 </div>
             </div>
@@ -67,12 +67,12 @@
         <div class="content-section">
             <h2>Technical Design</h2>
             <ul class="detail-list">
-                <li><strong>Batch Processing:</strong> Jobs are divided into configurable batch sizes and processed using Rayon for work-stealing parallel iteration across all CPU cores.</li>
-                <li><strong>Database I/O:</strong> Used <code>sqlx</code> with PostgreSQL connection pooling (PgPool) and bulk COPY for high-throughput reads/writes.</li>
-                <li><strong>Job Queue:</strong> Integration with <strong>AWS SQS</strong> for job dispatch; results written back to S3 and PostgreSQL transactionally.</li>
+                <li><strong>Batch Processing:</strong> Jobs are divided into configurable batch sizes and processed using <strong>AWS Batch</strong> for highly scalable parallel execution.</li>
+                <li><strong>Database I/O:</strong> Optimized PostgreSQL connection pooling and bulk COPY for high-throughput reads/writes.</li>
+                <li><strong>Job Queue:</strong> Leveraged AWS Batch managed service for seamless job queueing and dispatch; results written back to S3 and PostgreSQL transactionally.</li>
                 <li><strong>Emission Factors:</strong> Hot-loaded from a Redis cache with TTL-based invalidation to avoid repeated DB reads during batch runs.</li>
                 <li><strong>Error Handling:</strong> Per-record error isolation — a single bad record doesn't abort the entire batch; failures logged and retried separately.</li>
-                <li><strong>Containerized:</strong> Multi-stage Docker build producing a minimal ~12MB binary image deployed via Kubernetes CronJobs on EKS.</li>
+                <li><strong>Containerized:</strong> Multi-stage Docker build producing a minimal ~12MB binary image deployed as AWS Batch jobs.</li>
             </ul>
         </div>
 
@@ -93,7 +93,7 @@
                     <ul class="detail-list">
                         <li>Property-based testing with Proptest; output cross-validated against Python reference</li>
                         <li>Used <code>rust_decimal</code> crate for arbitrary-precision arithmetic</li>
-                        <li>Rust ownership model enforced thread safety at compile time — zero runtime races</li>
+                        <li>Rust's memory safety guarantees prevented runtime crashes and ensured robust processing</li>
                         <li>Exposed results via shared PostgreSQL tables; backward-compatible API contract</li>
                     </ul>
                 </div>
@@ -103,9 +103,9 @@
         <div class="content-section">
             <h2>Tech Stack</h2>
             <div class="tag-list">
-                <span>Rust</span><span>Tokio</span><span>Rayon</span><span>sqlx</span>
-                <span>PostgreSQL</span><span>Redis</span><span>AWS SQS</span><span>S3</span>
-                <span>Docker</span><span>Kubernetes</span><span>EKS</span><span>GitHub Actions</span>
+                <span>Rust</span><span>AWS Batch</span>
+                <span>PostgreSQL</span><span>Redis</span><span>S3</span>
+                <span>Docker</span><span>GitHub Actions</span>
             </div>
         </div>
 
@@ -113,8 +113,8 @@
             <h2>Outcomes</h2>
             <ul class="detail-list">
                 <li>Full recalculation time reduced from <strong>4–6 hours → under 30 minutes</strong> (10× speedup).</li>
-                <li>CPU utilization during batch runs optimally spread across all available cores via Rayon work-stealing.</li>
-                <li>Zero runtime panics in production — Rust's type system caught all concurrency bugs at compile time.</li>
+                <li>Compute resources optimally scaled and managed during batch runs via AWS Batch.</li>
+                <li>Zero runtime panics in production — Rust's strict type system caught potential bugs at compile time.</li>
                 <li>Memory footprint <strong>~90% lower</strong> than the Python equivalent, enabling 2× more concurrent jobs on the same infrastructure.</li>
                 <li>Enabled daily recalculations (previously weekly) — unlocking near-real-time emissions dashboards for enterprise clients.</li>
             </ul>
