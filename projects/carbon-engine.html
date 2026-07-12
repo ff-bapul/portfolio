@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Carbon Accounting Engine | Bapu Labade</title>
+    <meta name="description" content="Built a high-performance Rust-based batch recalculation engine for carbon accounting, processing millions of data points with maximum efficiency.">
+    <link rel="stylesheet" href="project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="page-wrap">
+
+        <a href="../index.html#projects" class="back-link">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+            Back to Portfolio
+        </a>
+
+        <div class="proj-hero">
+            <div class="proj-hero-meta">
+                <span class="hero-icon">⚡</span>
+                <span class="hero-type">Professional · Terrascope (Olam Group)</span>
+            </div>
+            <h1>Rust Carbon Accounting Engine</h1>
+            <p class="proj-tagline">
+                Designed and built a high-performance, batch-oriented recalculation engine in Rust for carbon accounting, replacing a slow Python-based system and processing millions of emission data points with maximum throughput.
+            </p>
+
+            <div class="stat-bar">
+                <div class="stat-block">
+                    <span class="stat-value">10×</span>
+                    <span class="stat-key">Faster Than Python</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">M+</span>
+                    <span class="stat-key">Records Processed</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">Rust</span>
+                    <span class="stat-key">Language</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">EKS</span>
+                    <span class="stat-key">Deployed On</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>
+                Terrascope's carbon accounting platform allows enterprises to track, calculate, and report Scope 1, 2, and 3 emissions. As client datasets grew into the hundreds of millions of rows, the existing Python-based recalculation engine became a critical bottleneck — full recalculations were taking 4–6 hours, blocking downstream reporting and compliance workflows.
+            </p>
+            <p>
+                I designed and implemented a new recalculation engine in <strong>Rust</strong>, leveraging its zero-cost abstractions and fearless concurrency model to achieve a 10× throughput improvement, reducing full recalculation time from hours to under 30 minutes.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Technical Design</h2>
+            <ul class="detail-list">
+                <li><strong>Batch Processing:</strong> Jobs are divided into configurable batch sizes and processed using Rayon for work-stealing parallel iteration across all CPU cores.</li>
+                <li><strong>Database I/O:</strong> Used <code>sqlx</code> with PostgreSQL connection pooling (PgPool) and bulk COPY for high-throughput reads/writes.</li>
+                <li><strong>Job Queue:</strong> Integration with <strong>AWS SQS</strong> for job dispatch; results written back to S3 and PostgreSQL transactionally.</li>
+                <li><strong>Emission Factors:</strong> Hot-loaded from a Redis cache with TTL-based invalidation to avoid repeated DB reads during batch runs.</li>
+                <li><strong>Error Handling:</strong> Per-record error isolation — a single bad record doesn't abort the entire batch; failures logged and retried separately.</li>
+                <li><strong>Containerized:</strong> Multi-stage Docker build producing a minimal ~12MB binary image deployed via Kubernetes CronJobs on EKS.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges &amp; Solutions</h2>
+            <div class="two-col">
+                <div class="info-card">
+                    <h3>🔴 Challenges</h3>
+                    <ul class="detail-list">
+                        <li>Complex emission factor calculation logic ported from Python</li>
+                        <li>Ensuring correctness at scale — numerical precision critical</li>
+                        <li>Safe concurrent access to shared state across threads</li>
+                        <li>Integration with existing Python-based platform services</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🟢 Solutions</h3>
+                    <ul class="detail-list">
+                        <li>Property-based testing with Proptest; output cross-validated against Python reference</li>
+                        <li>Used <code>rust_decimal</code> crate for arbitrary-precision arithmetic</li>
+                        <li>Rust ownership model enforced thread safety at compile time — zero runtime races</li>
+                        <li>Exposed results via shared PostgreSQL tables; backward-compatible API contract</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tech Stack</h2>
+            <div class="tag-list">
+                <span>Rust</span><span>Tokio</span><span>Rayon</span><span>sqlx</span>
+                <span>PostgreSQL</span><span>Redis</span><span>AWS SQS</span><span>S3</span>
+                <span>Docker</span><span>Kubernetes</span><span>EKS</span><span>GitHub Actions</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Outcomes</h2>
+            <ul class="detail-list">
+                <li>Full recalculation time reduced from <strong>4–6 hours → under 30 minutes</strong> (10× speedup).</li>
+                <li>CPU utilization during batch runs optimally spread across all available cores via Rayon work-stealing.</li>
+                <li>Zero runtime panics in production — Rust's type system caught all concurrency bugs at compile time.</li>
+                <li>Memory footprint <strong>~90% lower</strong> than the Python equivalent, enabling 2× more concurrent jobs on the same infrastructure.</li>
+                <li>Enabled daily recalculations (previously weekly) — unlocking near-real-time emissions dashboards for enterprise clients.</li>
+            </ul>
+        </div>
+
+        <footer class="page-footer">
+            <span>Bapu Labade · Technical Lead Engineer</span>
+            <a href="../index.html#projects" class="back-link" style="margin-bottom:0">← All Projects</a>
+        </footer>
+
+    </div>
+</body>
+</html>

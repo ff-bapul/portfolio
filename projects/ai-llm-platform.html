@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/LLM Integration Platform | Bapu Labade</title>
+    <meta name="description" content="Designed and built an intelligent automation platform integrating OpenAI, LangChain, and vector databases for enterprise RAG pipelines.">
+    <link rel="stylesheet" href="project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="page-wrap">
+
+        <a href="../index.html#projects" class="back-link">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+            Back to Portfolio
+        </a>
+
+        <div class="proj-hero">
+            <div class="proj-hero-meta">
+                <span class="hero-icon">🤖</span>
+                <span class="hero-type">Professional · Terrascope (Olam Group)</span>
+            </div>
+            <h1>AI / LLM Integration Platform</h1>
+            <p class="proj-tagline">
+                Designed and built an enterprise-grade intelligent automation platform leveraging OpenAI APIs, LangChain, vector databases, and RAG pipelines to automate complex carbon data workflows.
+            </p>
+
+            <div class="stat-bar">
+                <div class="stat-block">
+                    <span class="stat-value">RAG</span>
+                    <span class="stat-key">Architecture</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">GPT-4</span>
+                    <span class="stat-key">Core LLM</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">Multi</span>
+                    <span class="stat-key">Agent System</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">Vector</span>
+                    <span class="stat-key">Search Backend</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>
+                Terrascope processes massive volumes of carbon emissions data from enterprise clients. Manual workflows for categorizing spend data, extracting insights from PDF reports, and generating compliance summaries were a significant bottleneck. I led the design and implementation of an AI-powered automation layer to address these challenges.
+            </p>
+            <p>
+                The system integrates <strong>OpenAI GPT-4 APIs</strong> with <strong>LangChain</strong> orchestration, a <strong>pgvector</strong>-backed retrieval layer, and custom agent chains to automate document understanding, data classification, and report generation workflows.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Architecture</h2>
+            <ul class="detail-list">
+                <li><strong>Document Ingestion Layer:</strong> PDF/CSV upload → text extraction → chunking → embedding via OpenAI <code>text-embedding-ada-002</code> → stored in pgvector (PostgreSQL).</li>
+                <li><strong>RAG Pipeline:</strong> User queries trigger semantic search over the vector store, retrieving top-K relevant chunks, then passed to GPT-4 with a custom prompt template for grounded responses.</li>
+                <li><strong>Agent Orchestration:</strong> LangChain agent chains coordinate multi-step tasks — e.g., classify emission source → lookup regulatory threshold → generate compliance note.</li>
+                <li><strong>API Layer:</strong> FastAPI endpoints expose agent capabilities to the frontend with streaming responses via Server-Sent Events (SSE).</li>
+                <li><strong>Observability:</strong> LangSmith for LLM trace logging and latency monitoring; custom dashboards in Grafana for token usage and cost tracking.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Challenges &amp; Solutions</h2>
+            <div class="two-col">
+                <div class="info-card">
+                    <h3>🔴 Challenges</h3>
+                    <ul class="detail-list">
+                        <li>Hallucination risk with ungrounded LLM responses on carbon data</li>
+                        <li>High token costs at scale with enterprise-sized documents</li>
+                        <li>Latency requirements for real-time user interactions</li>
+                        <li>Ensuring data privacy — no enterprise data to external LLMs</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🟢 Solutions</h3>
+                    <ul class="detail-list">
+                        <li>RAG with strict source citations and confidence scoring</li>
+                        <li>Hierarchical chunking + summarization to reduce token footprint</li>
+                        <li>Async processing + streaming responses for perceived speed</li>
+                        <li>PII stripping pipeline before embedding; private VPC endpoints to OpenAI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tech Stack</h2>
+            <div class="tag-list">
+                <span>OpenAI GPT-4</span><span>LangChain</span><span>Python</span><span>FastAPI</span>
+                <span>pgvector</span><span>PostgreSQL</span><span>LangSmith</span><span>Docker</span>
+                <span>AWS Lambda</span><span>S3</span><span>Grafana</span><span>SSE Streaming</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Outcomes</h2>
+            <ul class="detail-list">
+                <li>Reduced manual data classification effort by <strong>~70%</strong> for the carbon data team.</li>
+                <li>Automated generation of regulatory compliance summaries previously taking 2–3 hours per report.</li>
+                <li>Achieved <strong>&lt;3s median latency</strong> for RAG-powered queries on large document corpora.</li>
+                <li>Platform extensible — onboarded 3 additional use cases (supplier questionnaire analysis, invoice categorization, ESG report generation) within 2 months.</li>
+            </ul>
+        </div>
+
+        <footer class="page-footer">
+            <span>Bapu Labade · Technical Lead Engineer</span>
+            <a href="../index.html#projects" class="back-link" style="margin-bottom:0">← All Projects</a>
+        </footer>
+
+    </div>
+</body>
+</html>
