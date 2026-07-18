@@ -99,6 +99,50 @@
             </div>
         </div>
 
+        <!-- Architecture Diagram -->
+        <div class="content-section">
+            <h2>Architecture Diagram</h2>
+            <style>
+                .mermaid svg {
+                    width: 100% !important;
+                    max-width: 1400px !important;
+                    min-height: 400px !important;
+                    height: auto !important;
+                }
+            </style>
+            <div class="mermaid-wrapper"
+                style="background: rgba(255, 255, 255, 0.03); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: center; overflow-x: auto; margin-top: 1.5rem; margin-bottom: 2rem; width: 100%;">
+                <div class="mermaid" style="width: 100%; display: flex; justify-content: center;">
+                    flowchart LR
+                    User((Users)) --> |Query / Stream| API(FastAPI)
+                    
+                    subgraph App [AI Application Layer]
+                        API --> LangChain[LangChain Orchestration]
+                        LangChain --> |Semantic Search| DB[(PostgreSQL pgvector)]
+                        LangChain --> |Prompting| LLM(OpenAI GPT-4)
+                    end
+                    
+                    subgraph DataPipeline [Data Ingestion]
+                        Docs[PDF/CSV Docs] --> |Extract & Chunk| Embed(Embedding Model)
+                        Embed --> |Vector Store| DB
+                    end
+                    
+                    LangChain -.-> |Trace & Metrics| Ops(LangSmith / Grafana)
+
+                    classDef aws fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff;
+                    classDef ai fill:#1a3673,stroke:#10a37f,stroke-width:2px,color:#fff;
+                    classDef database fill:#1d3a52,stroke:#336791,stroke-width:2px,color:#fff;
+
+                    class API,LangChain,LLM,Embed ai;
+                    class DB database;
+                    class Ops aws;
+
+                    style App fill:transparent,stroke:#10a37f,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                    style DataPipeline fill:transparent,stroke:#888,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                </div>
+            </div>
+        </div>
+
         <div class="content-section">
             <h2>Tech Stack</h2>
             <div class="tag-list">
@@ -124,5 +168,11 @@
         </footer>
 
     </div>
+
+    <!-- Mermaid.js for Architecture Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: 'Inter, sans-serif' } });
+    </script>
 </body>
 </html>

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard Platform | Bapu Labade</title>
-    <meta name="description" content="Built high-performance analytical dashboards for energy SaaS using ClickHouse and AWS Batch, boosting performance by 30%.">
+    <meta name="description"
+        content="Built high-performance analytical dashboards for energy SaaS using ClickHouse and AWS Batch, boosting performance by 30%.">
     <link rel="stylesheet" href="project.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="bg-grid"></div>
     <div class="bg-orb orb-1"></div>
@@ -18,7 +23,11 @@
     <div class="page-wrap">
 
         <a href="../index.html#projects" class="back-link">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                    clip-rule="evenodd" />
+            </svg>
             Back to Portfolio
         </a>
 
@@ -29,7 +38,9 @@
             </div>
             <h1>Analytics Dashboard Platform</h1>
             <p class="proj-tagline">
-                Spearheaded the design and development of a high-performance analytics dashboard system for an energy management SaaS, boosting dashboard load performance by 30% using ClickHouse and AWS Batch for large-dataset processing.
+                Spearheaded the design and development of a high-performance analytics dashboard system for an energy
+                management SaaS, boosting dashboard load performance by 30% using ClickHouse and AWS Batch for
+                large-dataset processing.
             </p>
 
             <div class="stat-bar">
@@ -57,21 +68,31 @@
         <div class="content-section">
             <h2>Overview</h2>
             <p>
-                At UST Global (Xpanxion), I led the development of an analytics dashboard platform for an energy management SaaS product. The platform needed to process and visualize large volumes of smart meter data, consumption trends, and anomaly reports for enterprise energy clients across multiple regions.
+                At UST Global (Xpanxion), I led the development of an analytics dashboard platform for an energy
+                management SaaS product. The platform needed to process and visualize large volumes of smart meter data,
+                consumption trends, and anomaly reports for enterprise energy clients across multiple regions.
             </p>
             <p>
-                The key challenge was that the existing PostgreSQL-backed dashboards were painfully slow on large datasets. I introduced <strong>ClickHouse</strong> as an OLAP analytics store with <strong>AWS Batch</strong> for scheduled data aggregation jobs — dramatically improving query performance and enabling richer, real-time-feeling dashboards.
+                The key challenge was that the existing PostgreSQL-backed dashboards were painfully slow on large
+                datasets. I introduced <strong>ClickHouse</strong> as an OLAP analytics store with <strong>AWS
+                    Batch</strong> for scheduled data aggregation jobs — dramatically improving query performance and
+                enabling richer, real-time-feeling dashboards.
             </p>
         </div>
 
         <div class="content-section">
             <h2>Architecture</h2>
             <ul class="detail-list">
-                <li><strong>Data Layer:</strong> Raw meter data in PostgreSQL → nightly AWS Batch jobs aggregate and transform data → loaded into ClickHouse materialized views for fast analytical queries.</li>
-                <li><strong>Dashboard Layer:</strong> React + TypeScript frontend with Recharts and AG Grid for interactive charts, filterable tables, and exportable reports.</li>
-                <li><strong>API Layer:</strong> Node.js / Express REST APIs serving pre-aggregated metrics from ClickHouse with Redis query caching for frequently accessed views.</li>
-                <li><strong>Multi-tenant:</strong> Row-level security in ClickHouse + tenant-scoped API tokens ensuring complete data isolation across enterprise clients.</li>
-                <li><strong>Design System:</strong> Built a reusable React component library (DLS) shared across 3 products — dashboard widgets, stepper workflows, data grids.</li>
+                <li><strong>Data Layer:</strong> Raw meter data in PostgreSQL → nightly AWS Batch jobs aggregate and
+                    transform data → loaded into ClickHouse materialized views for fast analytical queries.</li>
+                <li><strong>Dashboard Layer:</strong> React + TypeScript frontend with Recharts and AG Grid for
+                    interactive charts, filterable tables, and exportable reports.</li>
+                <li><strong>API Layer:</strong> Node.js / Express REST APIs serving pre-aggregated metrics from
+                    ClickHouse with Redis query caching for frequently accessed views.</li>
+                <li><strong>Multi-tenant:</strong> Row-level security in ClickHouse + tenant-scoped API tokens ensuring
+                    complete data isolation across enterprise clients.</li>
+                <li><strong>Design System:</strong> Built a reusable React component library (DLS) shared across 3
+                    products — dashboard widgets, stepper workflows, data grids.</li>
             </ul>
         </div>
 
@@ -99,6 +120,47 @@
             </div>
         </div>
 
+        <!-- Architecture Diagram -->
+        <div class="content-section">
+            <h2>Architecture Diagram</h2>
+            <style>
+                .mermaid svg {
+                    width: 100% !important;
+                    max-width: 1400px !important;
+                    min-height: 350px !important;
+                    height: auto !important;
+                }
+            </style>
+            <div class="mermaid-wrapper"
+                style="background: rgba(255, 255, 255, 0.03); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: center; overflow-x: auto; margin-top: 1.5rem; margin-bottom: 2rem; width: 100%;">
+                <div class="mermaid" style="width: 100%; display: flex; justify-content: center;">
+                    flowchart LR
+                    User((Users)) --> |View/Export| FE(React Dashboard)
+                    FE --> |API Requests| API(Node.js API)
+
+                    subgraph Data [Analytics Data Pipeline]
+                    PG[(PostgreSQL Raw Data)] --> |Aggregates| Batch(AWS Batch Jobs)
+                    Batch --> |Loads into| CH[(ClickHouse OLAP)]
+                    end
+
+                    API --> |Cached Queries| Redis[(Redis Cache)]
+                    API --> |Complex Queries| CH
+
+                    classDef aws fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff;
+                    classDef react fill:#1a3673,stroke:#61DAFB,stroke-width:2px,color:#fff;
+                    classDef database fill:#1d3a52,stroke:#336791,stroke-width:2px,color:#fff;
+                    classDef node fill:#1a3673,stroke:#339933,stroke-width:2px,color:#fff;
+
+                    class Batch aws;
+                    class FE react;
+                    class API node;
+                    class PG,CH,Redis database;
+
+                    style Data fill:transparent,stroke:#888,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                </div>
+            </div>
+        </div>
+
         <div class="content-section">
             <h2>Tech Stack</h2>
             <div class="tag-list">
@@ -111,10 +173,14 @@
         <div class="content-section">
             <h2>Outcomes</h2>
             <ul class="detail-list">
-                <li>Dashboard query performance improved by <strong>30%</strong> — average load time from 8s → under 2s for large datasets.</li>
-                <li>Deployment frequency accelerated by <strong>40%</strong> through CI/CD improvements and shared component reuse.</li>
-                <li>Design system adoption across 3 product lines — significant reduction in per-product frontend effort.</li>
-                <li>Enterprise clients reported significantly faster decision-making with near-real-time energy analytics.</li>
+                <li>Dashboard query performance improved by <strong>30%</strong> — average load time from 8s → under 2s
+                    for large datasets.</li>
+                <li>Deployment frequency accelerated by <strong>40%</strong> through CI/CD improvements and shared
+                    component reuse.</li>
+                <li>Design system adoption across 3 product lines — significant reduction in per-product frontend
+                    effort.</li>
+                <li>Enterprise clients reported significantly faster decision-making with near-real-time energy
+                    analytics.</li>
                 <li>Streaming export handled files up to <strong>500MB</strong> without client-side crashes.</li>
             </ul>
         </div>
@@ -125,5 +191,12 @@
         </footer>
 
     </div>
+
+    <!-- Mermaid.js for Architecture Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: 'Inter, sans-serif' } });
+    </script>
 </body>
+
 </html>
