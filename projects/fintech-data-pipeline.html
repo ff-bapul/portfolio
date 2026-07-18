@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Risk Management and Anomaly Detection Pipeline | Bapu Labade</title>
+    <meta name="description" content="Architected a scalable Azure Databricks Medallion pipeline to ingest and analyze global trade data for multiple banking Risk Management Systems.">
+    <link rel="stylesheet" href="project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="page-wrap">
+
+        <a href="../index.html#projects" class="back-link">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+            Back to Portfolio
+        </a>
+
+        <div class="proj-hero">
+            <div class="proj-hero-meta">
+                <span class="hero-icon">🏦</span>
+                <span class="hero-type">Professional · Fintech / Banking</span>
+            </div>
+            <h1>Global Risk Management and Anomaly Detection Pipeline</h1>
+            <p class="proj-tagline">
+                Architected an enterprise-scale data ingestion pipeline using Azure Databricks and a Medallion Architecture to feed multiple Risk Management Systems, process global balance sheets, and detect trade anomalies.
+            </p>
+
+            <div class="stat-bar">
+                <div class="stat-block">
+                    <span class="stat-value">Azure</span>
+                    <span class="stat-key">Cloud Infrastructure</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">Databricks</span>
+                    <span class="stat-key">Data Processing</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">ML</span>
+                    <span class="stat-key">Anomaly Detection</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-value">Unity</span>
+                    <span class="stat-key">Catalog Governance</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>
+                In the banking sector, consolidating front-to-back system data for multiple Risk Management Systems (RMS) is a massive data engineering challenge. The bank required a unified, highly scalable platform to ingest massive daily transaction files, manage the global balance sheet, and apply intelligent rules to detect anomalies in real-time trades.
+            </p>
+            <p>
+                I spearheaded the design and implementation of an <strong>Azure Databricks</strong> pipeline utilizing the <strong>Medallion Architecture</strong>. By standardizing the ingestion flow and packaging the processing logic into modular Python Wheel files, we enabled multiple RMS pipelines to operate independently while feeding into a governed, centralized Gold layer in Unity Catalog.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Architecture Highlights</h2>
+            <ul class="detail-list">
+                <li><strong>Medallion Data Architecture:</strong> Implemented a strict Bronze (raw data), Silver (cleansed & filtered), and Gold (business-level aggregations) pattern to ensure data quality and auditability for financial regulators.</li>
+                <li><strong>Azure Integration:</strong> Transaction and trade files are continuously placed into an <strong>Azure Data Lake Storage (ADLS)</strong> account, triggering automated ingestion workflows.</li>
+                <li><strong>Databricks Workflows & Python Wheels:</strong> Each RMS operates its own Databricks pipeline. Complex transformation logic is packaged into deployable <strong>Python Wheel files</strong>, ensuring version-controlled, reusable, and testable codebase execution.</li>
+                <li><strong>AI/ML Anomaly Detection:</strong> Applied machine learning rules on top of the Silver/Gold layers to proactively detect anomalous trading patterns and flag them for risk analysts.</li>
+                <li><strong>Unity Catalog:</strong> Enforced strict data governance and fine-grained access control on the Gold layer, ensuring that highly sensitive global balance sheet data is securely managed across different business domains.</li>
+            </ul>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div class="content-section">
+            <h2>Architecture Diagram</h2>
+            <style>
+                .mermaid svg {
+                    width: 100% !important;
+                    max-width: 1400px !important;
+                    min-height: 350px !important;
+                    height: auto !important;
+                }
+            </style>
+            <div class="mermaid-wrapper"
+                style="background: rgba(255, 255, 255, 0.03); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: center; overflow-x: auto; margin-top: 1.5rem; margin-bottom: 2rem; width: 100%;">
+                <div class="mermaid" style="width: 100%; display: flex; justify-content: center;">
+                    flowchart LR
+                        subgraph Storage ["Azure Data Lake<br>(ADLS)"]
+                            Raw("Front-to-Back<br>Trade Files")
+                        end
+                        
+                        subgraph Medallion ["Databricks<br>Medallion Architecture"]
+                            Bronze[("Bronze:<br>Raw Data")]
+                            Silver[("Silver:<br>Refined")]
+                            Gold[("Gold:<br>Unity Catalog")]
+                        end
+                        
+                        subgraph RMS ["Risk Management<br>Systems"]
+                            AI("Trade Anomaly<br>Detection")
+                            BS("Global Balance<br>Sheet Mgmt")
+                        end
+
+                        Raw --> |"Python<br>Wheel Jobs"| Bronze
+                        Bronze --> |"Cleanse and<br>Validate"| Silver
+                        Silver --> |"Business<br>Logic"| Gold
+                        
+                        Gold --> |"ML Rules"| AI
+                        Gold --> |"Aggregations"| BS
+                        
+                        classDef azure fill:#0078D4,stroke:#fff,stroke-width:2px,color:#fff;
+                        classDef bronze fill:#cd7f32,stroke:#fff,stroke-width:2px,color:#fff;
+                        classDef silver fill:#c0c0c0,stroke:#fff,stroke-width:2px,color:#111;
+                        classDef gold fill:#ffd700,stroke:#fff,stroke-width:2px,color:#111;
+                        classDef rms fill:#2ea043,stroke:#fff,stroke-width:2px,color:#fff;
+
+                        class Raw azure;
+                        class Bronze bronze;
+                        class Silver silver;
+                        class Gold gold;
+                        class AI,BS rms;
+
+                        style Storage fill:transparent,stroke:#0078D4,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                        style Medallion fill:transparent,stroke:#FF3621,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                        style RMS fill:transparent,stroke:#888,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tech Stack</h2>
+            <div class="tag-list">
+                <span>Azure Databricks</span><span>Python</span><span>Azure ADLS</span><span>PySpark</span>
+                <span>Unity Catalog</span><span>Machine Learning</span><span>Medallion Architecture</span><span>CI/CD</span>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Outcomes</h2>
+            <ul class="detail-list">
+                <li>Unified disjointed legacy ingestion systems into a single, highly performant Databricks platform, drastically reducing data engineering overhead.</li>
+                <li>Enabled multiple Risk Management Systems to consume a single source of truth (Gold Layer) for global balance sheets, eliminating data silos.</li>
+                <li>Improved regulatory compliance and data auditability by enforcing Unity Catalog governance across all financial datasets.</li>
+                <li>Reduced time-to-insight for trade anomaly detection through scalable machine learning models running directly on the Silver/Gold tables.</li>
+            </ul>
+        </div>
+
+        <footer class="page-footer">
+            <p class="footer-copy">© 2026 Bapu Labade</p>
+        </footer>
+
+    </div>
+
+    <!-- Mermaid.js for Architecture Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: 'Inter, sans-serif' } });
+    </script>
+</body>
+</html>
