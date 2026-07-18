@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure → AWS Cloud Migration | Bapu Labade</title>
-    <meta name="description" content="Led end-to-end Azure to AWS cloud migration for Terrascope, reducing infrastructure costs by 35% with zero downtime.">
+    <meta name="description"
+        content="Led end-to-end Azure to AWS cloud migration for Terrascope, reducing infrastructure costs by 35% with zero downtime.">
     <link rel="stylesheet" href="project.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="bg-grid"></div>
     <div class="bg-orb orb-1"></div>
@@ -19,7 +24,11 @@
 
         <!-- Back button -->
         <a href="../index.html#projects" class="back-link">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+                    clip-rule="evenodd" />
+            </svg>
             Back to Portfolio
         </a>
 
@@ -31,7 +40,8 @@
             </div>
             <h1>Azure → AWS Cloud Migration</h1>
             <p class="proj-tagline">
-                End-to-end cloud platform migration for a carbon management SaaS, achieving 35% infrastructure cost reduction, improved scalability, and zero-downtime cutover using cloud-native AWS architecture.
+                End-to-end cloud platform migration for a carbon management SaaS, achieving 35% infrastructure cost
+                reduction, improved scalability, and zero-downtime cutover using cloud-native AWS architecture.
             </p>
 
             <!-- Key metrics -->
@@ -61,10 +71,14 @@
         <div class="content-section">
             <h2>Overview</h2>
             <p>
-                Terrascope's carbon management platform was originally built on Azure. As the product scaled to serve enterprise clients across APAC and Europe, the team identified significant opportunities to reduce costs, improve reliability, and leverage more mature cloud-native tooling by migrating to AWS.
+                Terrascope's carbon management platform was originally built on Azure. As the product scaled to serve
+                enterprise clients across APAC and Europe, the team identified significant opportunities to reduce
+                costs, improve reliability, and leverage more mature cloud-native tooling by migrating to AWS.
             </p>
             <p>
-                I architected and led the full migration initiative — from designing the target AWS architecture, provisioning infrastructure via Terraform, containerizing services for EKS, and coordinating the phased cutover with zero business disruption.
+                I architected and led the full migration initiative — from designing the target AWS architecture,
+                provisioning infrastructure via Terraform, containerizing services for EKS, and coordinating the phased
+                cutover with zero business disruption.
             </p>
         </div>
 
@@ -97,13 +111,69 @@
         <div class="content-section">
             <h2>Key Deliverables</h2>
             <ul class="detail-list">
-                <li>Designed the target AWS architecture: <strong>EKS</strong> for container orchestration, <strong>RDS PostgreSQL</strong> for primary database, <strong>S3 + CloudFront</strong> for static assets, and <strong>ElastiCache Redis</strong> for caching.</li>
-                <li>Authored all Terraform modules for VPC, subnets, security groups, EKS cluster, IAM roles, and RDS — achieving full Infrastructure-as-Code reproducibility.</li>
-                <li>Set up <strong>ArgoCD</strong> for GitOps-based continuous deployment to EKS, replacing manual Azure DevOps pipelines.</li>
-                <li>Configured <strong>AWS CloudWatch + Grafana</strong> for unified observability across all services.</li>
-                <li>Implemented automated database migration scripts using Python + Alembic for schema and data migration with checksums.</li>
-                <li>Performed load testing post-migration to validate <strong>zero performance regression</strong> at 2× peak load.</li>
+                <li>Designed the target AWS architecture: <strong>EKS</strong> for container orchestration, <strong>RDS
+                        PostgreSQL</strong> for primary database, <strong>S3 + CloudFront</strong> for static assets,
+                    and <strong>ElastiCache Redis</strong> for caching.</li>
+                <li>Authored all Terraform modules for VPC, subnets, security groups, EKS cluster, IAM roles, and RDS —
+                    achieving full Infrastructure-as-Code reproducibility.</li>
+                <li>Set up <strong>ArgoCD</strong> for GitOps-based continuous deployment to EKS, replacing manual Azure
+                    DevOps pipelines.</li>
+                <li>Configured <strong>AWS CloudWatch + Grafana</strong> for unified observability across all services.
+                </li>
+                <li>Implemented automated database migration scripts using Python + Alembic for schema and data
+                    migration with checksums.</li>
+                <li>Performed load testing post-migration to validate <strong>zero performance regression</strong> at 2×
+                    peak load.</li>
             </ul>
+        </div>
+
+        <!-- Architecture -->
+        <div class="content-section">
+            <h2>Architecture Diagram</h2>
+            <style>
+                .mermaid svg {
+                    width: 100% !important;
+                    max-width: 1400px !important;
+                    min-height: 300px !important;
+                    height: auto !important;
+                }
+            </style>
+            <div class="mermaid-wrapper"
+                style="background: rgba(255, 255, 255, 0.03); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: center; overflow-x: auto; margin-top: 1.5rem; margin-bottom: 2rem; width: 100%;">
+                <div class="mermaid" style="width: 100%; display: flex; justify-content: center;">
+                    flowchart LR
+                    User((Users)) --> Webapp --> |HTTPS| CF(AWS CloudFront)
+                    CF --> |Static Assets| S3[(Amazon S3)]
+                    CF --> |API Requests| ALB(AWS ALB)
+
+                    subgraph EKS [Amazon EKS Cluster]
+                    ALB --> Services[Microservices]
+                    ArgoCD[ArgoCD GitOps] -.-> |Syncs| Services
+                    end
+
+                    Services --> |Read/Write| RDS[(RDS PostgreSQL)]
+                    Services --> |Cache| Redis[(ElastiCache Redis)]
+
+                    subgraph Ops [CI/CD & Observability]
+                    GH(GitHub Actions) --> |Push Image| ECR(AWS ECR)
+                    ECR -.-> |Pulls Image| ArgoCD
+                    CW(CloudWatch) --- Grafana(Grafana)
+                    end
+
+                    Services -.-> |Logs & Metrics| CW
+
+                    classDef aws fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff;
+                    classDef kubernetes fill:#1a3673,stroke:#326CE5,stroke-width:2px,color:#fff;
+                    classDef database fill:#1d3a52,stroke:#336791,stroke-width:2px,color:#fff;
+
+                    class S3,RDS,Redis database;
+                    class CF,ALB,ECR,CW aws;
+                    class Services,ArgoCD kubernetes;
+
+                    style EKS fill:transparent,stroke:#326CE5,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                    style Ops fill:transparent,stroke:#888,stroke-width:2px,stroke-dasharray: 5 5,color:#fff
+                </div>
+            </div>
         </div>
 
         <!-- Tech Stack -->
@@ -124,7 +194,8 @@
                 <li><strong>35% reduction</strong> in monthly cloud infrastructure spend.</li>
                 <li>Zero downtime during cutover — enterprise SLAs maintained throughout.</li>
                 <li>Deployment frequency improved from weekly to daily with GitOps pipelines.</li>
-                <li>Team received the <strong>Terrascope Award</strong> recognizing the successful migration and data solution design.</li>
+                <li>Team received the <strong>Terrascope Award</strong> recognizing the successful migration and data
+                    solution design.</li>
                 <li>Platform now scales horizontally to handle 5× peak load without manual intervention.</li>
             </ul>
         </div>
@@ -135,5 +206,12 @@
         </footer>
 
     </div>
+
+    <!-- Mermaid.js for Architecture Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { fontFamily: 'Inter, sans-serif' } });
+    </script>
 </body>
+
 </html>
